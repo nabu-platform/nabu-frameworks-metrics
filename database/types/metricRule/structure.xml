@@ -1,0 +1,13 @@
+<structure collectionName="metricRules" name="metricRule">
+    <field name="id" pattern="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}|[0-9a-fA-F]{32}" primaryKey="true" type="java.util.UUID"/>
+    <field indexed="true" name="created" timezone="UTC" type="java.util.Date"/>
+    <field comment="The metric group it applies to" foreignKey="nabu.frameworks.metrics.database.types.metricGroup:id" name="metricGroupId" pattern="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}|[0-9a-fA-F]{32}" type="java.util.UUID"/>
+    <field comment="The actual rule that will determine when it is triggered" name="rule" type="java.lang.String"/>
+    <field comment="The resulting event category" name="category" type="java.lang.String"/>
+    <field comment="The resulting event name" name="name" type="java.lang.String"/>
+    <field comment="Plain text title of the rule" minOccurs="0" name="title" type="java.lang.String"/>
+    <field comment="Longer description of the rule" minOccurs="0" name="description" type="java.lang.String"/>
+    <field comment="Event message (if any)" minOccurs="0" name="message" type="java.lang.String"/>
+    <field comment="Priority of the resulting event" name="priority" type="java.lang.Long"/>
+    <field name="enabled" type="java.lang.Boolean"/>
+</structure>

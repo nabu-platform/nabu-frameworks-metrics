@@ -1,0 +1,11 @@
+<sequence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		disabled="false"
+		id="14f8308dff2c42ef92b33b3aaa1856fa"
+		lineNumber="1">
+	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+			comment="TODO: implement metric rule evaluation"
+			disabled="false"
+			id="b299c45d71fc49cd9f5c490652f645f7"
+			lineNumber="2">
+	</steps>
+</sequence>

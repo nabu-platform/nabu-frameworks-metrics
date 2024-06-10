@@ -1,0 +1,17 @@
+<structure collectionName="metricInstances" name="metricInstance">
+    <field name="id" pattern="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}|[0-9a-fA-F]{32}" primaryKey="true" type="java.util.UUID"/>
+    <field foreignKey="nabu.frameworks.metrics.database.types.metricGroup:id" name="metricGroupId" pattern="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}|[0-9a-fA-F]{32}" type="java.util.UUID"/>
+    <field comment="Optional internal server identifier" minOccurs="0" name="serverId" pattern="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}|[0-9a-fA-F]{32}" type="java.util.UUID"/>
+    <field minOccurs="0" name="serverName" type="java.lang.String"/>
+    <field indexed="true" name="created" timezone="UTC" type="java.util.Date"/>
+    <field comment="Start of the metric window" indexed="true" name="started" timezone="UTC" type="java.util.Date"/>
+    <field comment="Stop of the metric window" indexed="true" name="stopped" timezone="UTC" type="java.util.Date"/>
+    <field name="amountOfDataPoints" type="java.lang.Long"/>
+    <field name="minValue" type="java.lang.Double"/>
+    <field name="maxValue" type="java.lang.Double"/>
+    <field name="ema" type="java.lang.Double"/>
+    <field name="cma" type="java.lang.Double"/>
+    <field minOccurs="0" name="dev25" type="java.lang.Double"/>
+    <field minOccurs="0" name="dev50" type="java.lang.Double"/>
+    <field minOccurs="0" name="dev75" type="java.lang.Double"/>
+</structure>

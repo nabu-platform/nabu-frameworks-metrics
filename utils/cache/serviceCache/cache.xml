@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<cache>
+    <cacheProvider>nabu.frameworks.metrics.utils.cache.memoryCache</cacheProvider>
+    <service>nabu.frameworks.metrics.services.getMetricGroup</service>
+    <service>nabu.frameworks.metrics.services.getConnection</service>
+    <enableInDevelopment>true</enableInDevelopment>
+</cache>

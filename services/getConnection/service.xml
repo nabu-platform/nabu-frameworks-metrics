@@ -1,0 +1,92 @@
+<sequence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		disabled="false"
+		id="fe44dced618d4959b247cd61ae0dbf3b"
+		lineNumber="1">
+	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+			comment="Get connection"
+			disabled="false"
+			id="bbe11e8c-897c-4bee-9a55-4e4b2b641158"
+			lineNumber="2">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+				disabled="false"
+				id="ae75c60b-1e35-4b05-9b8c-8edfd2bba306"
+				serviceId="nabu.utils.Server.property"
+				resultName="result57cdc7c8e50a497fb8be442c23683c9c"
+				temporaryMapping="true"
+				x="607"
+				y="163"
+				invocationOrder="2"
+				asynchronous="false"
+				recache="false">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="d4c39b57-66b9-4ee2-8aab-3703d23df24e"
+					mask="false"
+					optional="false"
+					fixedValue="true">
+				<from>metrics.connection</from>
+				<to>key</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="6a4e987bbd22459484bbd06a41689da6"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>result0ff156fd336b41f4a57d40274a070972/first</from>
+				<to>defaultValue</to>
+			</steps>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+				disabled="false"
+				id="c71499d140ed40be86f6d83f08a0d9c0"
+				mask="false"
+				optional="false"
+				fixedValue="false">
+			<from>result57cdc7c8e50a497fb8be442c23683c9c/value</from>
+			<to>output/connectionId</to>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+				disabled="false"
+				id="d1d20e5c714346fea57ea9f9dfd749ee"
+				serviceId="nabu.utils.reflection.Node.dependencies"
+				resultName="result30eee302a6174e4a819701fcd0522941"
+				temporaryMapping="true"
+				x="95"
+				y="203"
+				invocationOrder="0"
+				asynchronous="false"
+				recache="false">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="18867643dce74e598fe02bbdb70d0e98"
+					mask="false"
+					optional="false"
+					fixedValue="true">
+				<from>nabu.frameworks.metrics.database.model</from>
+				<to>id</to>
+			</steps>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+				disabled="false"
+				id="1fbfc844090647a7bec870306d09e001"
+				serviceId="nabu.utils.Object.first"
+				resultName="result0ff156fd336b41f4a57d40274a070972"
+				temporaryMapping="true"
+				x="290"
+				y="67"
+				invocationOrder="1"
+				asynchronous="false"
+				recache="false">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="cdb1a3e79dae41d5a8d223b31bd01416"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>result30eee302a6174e4a819701fcd0522941/nodes[artifactClass == "be.nabu.eai.module.jdbc.pool.JDBCPoolArtifact"]/id</from>
+				<to>options</to>
+			</steps>
+		</steps>
+	</steps>
+</sequence>

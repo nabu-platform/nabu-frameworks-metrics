@@ -1,0 +1,3 @@
+<jdbcService xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<sql>delete from ~metric_instances where metric_group_id = :metricGroupId and started &lt; :before</sql>
+</jdbcService>

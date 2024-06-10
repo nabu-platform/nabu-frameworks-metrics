@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<node artifactManager="be.nabu.eai.module.services.vm.VMServiceManager" created="2024-06-10T08:59:59.681+02:00" lastModified="2024-06-10T09:22:01.993+02:00" leaf="true" version="5">
+    <environmentId>apollo</environmentId>
+    <hidden>false</hidden>
+    <locked>false</locked>
+    <properties/>
+    <references>nabu.frameworks.metrics.database.types.metricRule</references>
+    <references>nabu.frameworks.metrics.database.types.metricInstance</references>
+    <todos>
+        <id>nabu.frameworks.metrics.services.evaluate:b299c45d71fc49cd9f5c490652f645f7</id>
+        <tags>nabu</tags>
+        <todo>implement metric rule evaluation</todo>
+    </todos>
+</node>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<webModule>
+    <webFragments>nabu.frameworks.metrics.crud.metricGroup</webFragments>
+    <webFragments>nabu.frameworks.metrics.crud.metricInstance</webFragments>
+    <webFragments>nabu.frameworks.metrics.crud.metricRule</webFragments>
+</webModule>

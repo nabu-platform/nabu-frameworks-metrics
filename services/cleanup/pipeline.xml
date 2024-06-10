@@ -1,0 +1,8 @@
+<structure name="pipeline">
+    <structure name="input">
+        <field minOccurs="0" name="connectionId" type="java.lang.String"/>
+    </structure>
+    <structure name="output"/>
+    <structure collectionName="metricGroups" definition="nabu.frameworks.metrics.crud.metricGroup.types.output" enricher="nabu.frameworks.metrics.crud.metricGroup.services.list" maxOccurs="unbounded" minOccurs="0" name="groups" persister="nabu.frameworks.metrics.crud.metricGroup.batch.updateAll"/>
+    <field minOccurs="0" name="date" type="java.util.Date"/>
+</structure>

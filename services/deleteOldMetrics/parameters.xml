@@ -1,0 +1,4 @@
+<structure name="parameter">
+    <field name="metricGroupId" type="java.util.UUID"/>
+    <field name="before" timezone="UTC" type="java.util.Date"/>
+</structure>

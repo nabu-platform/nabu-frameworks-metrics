@@ -1,0 +1,9 @@
+<structure collectionName="metricGroups" name="metricGroup">
+    <field name="id" pattern="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}|[0-9a-fA-F]{32}" primaryKey="true" type="java.util.UUID"/>
+    <field comment="Internal identifier of the server group. Access is managed at this level." indexed="true" minOccurs="0" name="serverGroupId" pattern="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}|[0-9a-fA-F]{32}" type="java.util.UUID"/>
+    <field name="serverGroup" type="java.lang.String"/>
+    <field name="context" type="java.lang.String"/>
+    <field name="name" type="java.lang.String"/>
+    <field comment="When disabled, we don't store new incoming data." name="enabled" type="java.lang.Boolean"/>
+    <field comment="How long should we keep the data for" name="retention" type="be.nabu.libs.types.base.Duration"/>
+</structure>

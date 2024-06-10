@@ -1,0 +1,120 @@
+<sequence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		disabled="false"
+		id="f9c9dbde-9e71-4203-a08e-cc29b7a102fa"
+		lineNumber="1">
+	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+			disabled="false"
+			id="bba19787-fffc-486f-9948-88e8078a1946"
+			lineNumber="2">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+				disabled="false"
+				id="992bf52f6c3d465a9d815db801a88252"
+				serviceId="nabu.frameworks.metrics.services.getConnection"
+				resultName="resultfadf2aa1347d4799b9c61d20998579b0"
+				temporaryMapping="true"
+				x="293"
+				y="112"
+				invocationOrder="0"
+				asynchronous="false"
+				recache="false">
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+				disabled="false"
+				id="a5ba26e8363b4be8abf97ff8fb054607"
+				mask="false"
+				optional="false"
+				fixedValue="false">
+			<from>resultfadf2aa1347d4799b9c61d20998579b0/connectionId</from>
+			<to>connectionId</to>
+		</steps>
+	</steps>
+	<steps xsi:type="be.nabu.libs.services.vm.step.Switch"
+			disabled="false"
+			id="70ed4ae6-5dc7-454f-a85f-d60c63571683"
+			lineNumber="3"
+			query="connectionId">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+				disabled="false"
+				id="737283c9-12bf-4c11-8c76-8501e3a6cb3f"
+				label="null"
+				lineNumber="4">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+					disabled="false"
+					id="d73dc183-62b5-4308-acfb-af83e1ab023a"
+					serviceId="nabu.utils.Server.log"
+					resultName="resultc66d3c873cdf46318bc7e253d6a7c1ea"
+					temporaryMapping="true"
+					x="51"
+					y="71"
+					invocationOrder="0"
+					asynchronous="false"
+					recache="false">
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+						disabled="false"
+						id="166a01fa-d2b5-4f0d-8855-0f6de313d1ae"
+						mask="false"
+						optional="false"
+						fixedValue="true">
+					<from>No connection found for metrics. Listener not registered.</from>
+					<to>message</to>
+				</steps>
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+						disabled="false"
+						id="e51f6a68-7e47-43bf-b830-9bfbaeea0c44"
+						mask="false"
+						optional="false"
+						fixedValue="true">
+					<from>WARN</from>
+					<to>level</to>
+				</steps>
+			</steps>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+				disabled="false"
+				id="a00bc1cb-30e9-438e-8f3f-6530938b6b3b"
+				lineNumber="5">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+					disabled="false"
+					id="ee30710b-649b-4352-b0bd-353c60a3c54a"
+					serviceId="nabu.utils.Server.log"
+					resultName="result1c2d7d751c9c4539b169967da35aa20e"
+					temporaryMapping="true"
+					x="114"
+					y="226"
+					invocationOrder="0"
+					asynchronous="false"
+					recache="false">
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+						disabled="false"
+						id="a237fdd9-9873-416f-95a1-2bf8e8944d0b"
+						mask="false"
+						optional="false"
+						fixedValue="true">
+					<from>="Metrics listener registered on connection: " + connectionId</from>
+					<to>message</to>
+				</steps>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+					disabled="false"
+					id="20ebb2eb1a8e42bba6670184aac19515"
+					serviceId="nabu.utils.Metric.subscribe"
+					resultName="resultbac32fe3d19e4c81a8594ea841675e3b"
+					temporaryMapping="true"
+					x="323"
+					y="57"
+					invocationOrder="0"
+					asynchronous="false"
+					recache="false">
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+						disabled="false"
+						id="02bc9326a9dc4236aa62992ed9fb114f"
+						mask="false"
+						optional="false"
+						fixedValue="true">
+					<from>nabu.frameworks.metrics.providers.metricHandler</from>
+					<to>serviceId</to>
+				</steps>
+			</steps>
+		</steps>
+	</steps>
+</sequence>

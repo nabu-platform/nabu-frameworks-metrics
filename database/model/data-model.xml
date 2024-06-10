@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<dataModel>
+    <entries>
+        <synchronize>true</synchronize>
+        <type>nabu.frameworks.metrics.database.types.metricGroup</type>
+        <x>207</x>
+        <y>119</y>
+    </entries>
+    <entries>
+        <synchronize>true</synchronize>
+        <type>nabu.frameworks.metrics.database.types.metricInstance</type>
+        <x>695</x>
+        <y>390</y>
+    </entries>
+    <entries>
+        <synchronize>true</synchronize>
+        <type>nabu.frameworks.metrics.database.types.metricRule</type>
+        <x>721</x>
+        <y>13</y>
+    </entries>
+</dataModel>

@@ -1,0 +1,7 @@
+<structure name="pipeline">
+    <structure name="input">
+        <structure collectionName="metricInstances" definition="nabu.frameworks.metrics.database.types.metricInstance" name="instance"/>
+        <structure collectionName="metricRules" definition="nabu.frameworks.metrics.database.types.metricRule" maxOccurs="unbounded" name="rules"/>
+    </structure>
+    <structure name="output"/>
+</structure>
