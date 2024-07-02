@@ -89,4 +89,41 @@
 			</steps>
 		</steps>
 	</steps>
+	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+			comment="Get jdbc artifact"
+			disabled="false"
+			id="bba19787-fffc-486f-9948-88e8078a1946"
+			label="output/connectionId == null"
+			lineNumber="3">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+				disabled="false"
+				id="ca8c1260-3442-4109-85d1-b353fc7a72a5"
+				serviceId="nabu.utils.reflection.Node.resolveFor"
+				resultName="result1958f38e5ae446ee9da03bee7175bae8"
+				temporaryMapping="true"
+				x="258"
+				y="123"
+				invocationOrder="0"
+				asynchronous="false"
+				recache="false">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="001ca72c-d953-4a9b-baaa-3c2e78a9de17"
+					mask="false"
+					optional="false"
+					fixedValue="true">
+				<from>be.nabu.eai.module.jdbc.pool.JDBCPoolArtifact</from>
+				<to>type</to>
+			</steps>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+				disabled="false"
+				id="fd4e432c66be467687ddbd0cc102c13a"
+				mask="false"
+				optional="false"
+				fixedValue="false">
+			<from>result1958f38e5ae446ee9da03bee7175bae8/resolved/id</from>
+			<to>output/connectionId</to>
+		</steps>
+	</steps>
 </sequence>

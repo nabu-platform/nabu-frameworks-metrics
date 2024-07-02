@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<node artifactManager="be.nabu.eai.module.services.vm.VMServiceManager" created="2024-06-10T09:16:32.555+02:00" lastModified="2024-06-10T09:18:18.237+02:00" leaf="true" version="6">
+<node artifactManager="be.nabu.eai.module.services.vm.VMServiceManager" created="2024-06-10T09:16:32.555+02:00" lastModified="2024-06-12T08:47:22.194+02:00" leaf="true" version="7">
     <environmentId>apollo</environmentId>
     <hidden>false</hidden>
     <locked>false</locked>
     <properties/>
+    <references>nabu.utils.reflection.Node.resolveFor</references>
     <references>nabu.utils.Object.first</references>
     <references>nabu.utils.Server.property</references>
     <references>java.lang.String</references>

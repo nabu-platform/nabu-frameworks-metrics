@@ -361,6 +361,15 @@
 				<from>metric/statistics/cumulativeAverageDeviation[deviation &gt; 0.74 &amp;&amp; deviation &lt; 0.76]/percentage</from>
 				<to>metricInstances[0]/dev75</to>
 			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="11ed4ca9dfe2473c8f53628fd524d710"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>metric/statistics/total</from>
+				<to>metricInstances[0]/total</to>
+			</steps>
 		</steps>
 		<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 				disabled="false"
@@ -434,6 +443,21 @@
 				<from>connectionId</from>
 				<to>connection</to>
 			</steps>
+		</steps>
+	</steps>
+	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+			comment="Set handled"
+			disabled="false"
+			id="b76aa58930944b2d95ed3cd02601b49f"
+			lineNumber="9">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+				disabled="false"
+				id="5e8a0acd700d46fdb05024148e4113e5"
+				mask="false"
+				optional="false"
+				fixedValue="true">
+			<from>true</from>
+			<to>output/handled</to>
 		</steps>
 	</steps>
 </sequence>

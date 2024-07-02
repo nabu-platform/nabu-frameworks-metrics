@@ -374,7 +374,8 @@
 			</steps>
 		</steps>
 		<steps xsi:type="be.nabu.libs.services.vm.step.Finally"
-				disabled="false"
+				comment="Do not unlock! It is a scoped transaction and already unlocks it"
+				disabled="true"
 				id="184e1fc495024adca76327a684180739"
 				lineNumber="7">
 			<steps xsi:type="be.nabu.libs.services.vm.step.Map"
