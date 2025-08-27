@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<node artifactManager="be.nabu.eai.module.cache.provider.memory.MemoryCacheProviderManager" created="2024-06-10T09:06:15.086+02:00" lastModified="2024-06-10T09:06:26.525+02:00" leaf="true" version="3">
-    <environmentId>apollo</environmentId>
+<node artifactManager="be.nabu.eai.module.cache.provider.memory.MemoryCacheProviderManager" created="2024-06-10T09:06:15.086+02:00" lastModified="2025-08-26T12:22:01.430+02:00" leaf="true" version="4">
+    <environmentId>ares</environmentId>
     <hidden>false</hidden>
     <locked>false</locked>
     <properties/>
