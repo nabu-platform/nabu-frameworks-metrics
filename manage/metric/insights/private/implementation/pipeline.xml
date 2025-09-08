@@ -1,0 +1,7 @@
+<structure interface="nabu.frameworks.metrics.manage.metric.insights:api" name="pipeline">
+    <structure name="input"/>
+    <structure name="output"/>
+    <field maxOccurs="unbounded" minOccurs="0" name="metricGroupContext" type="java.lang.String"/>
+    <field maxOccurs="unbounded" name="referencedIds" type="java.lang.String"/>
+    <structure definition="nabu.utils.types.NodeDescription" maxOccurs="unbounded" minOccurs="0" name="references"/>
+</structure>

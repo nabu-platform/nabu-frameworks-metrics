@@ -18,4 +18,10 @@
         <x>721</x>
         <y>13</y>
     </entries>
+    <entries>
+        <synchronize>true</synchronize>
+        <type>nabu.frameworks.metrics.database.types.metricFilter</type>
+        <x>140</x>
+        <y>505</y>
+    </entries>
 </dataModel>

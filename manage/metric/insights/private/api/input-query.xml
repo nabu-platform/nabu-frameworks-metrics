@@ -1,0 +1,13 @@
+<structure name="query">
+    <field minOccurs="0" name="since" timezone="UTC" type="java.util.Date"/>
+    <field minOccurs="0" name="until" timezone="UTC" type="java.util.Date"/>
+    <field maxOccurs="unbounded" minOccurs="0" name="metricGroupName" type="java.lang.String"/>
+    <field maxOccurs="unbounded" minOccurs="0" name="serverName" type="java.lang.String"/>
+    <field maxOccurs="unbounded" minOccurs="0" name="serverGroup" type="java.lang.String"/>
+    <field minOccurs="0" name="limit" type="java.lang.Long"/>
+    <field minOccurs="0" name="offset" type="java.lang.Long"/>
+    <field maxOccurs="unbounded" minOccurs="0" name="orderBy" type="java.lang.String"/>
+    <field maxOccurs="unbounded" minOccurs="0" name="artifactClass" type="java.lang.String"/>
+    <field minOccurs="0" name="referencedBy" type="java.lang.String"/>
+    <field maxOccurs="unbounded" minOccurs="0" name="metricGroupContext" type="java.lang.String"/>
+</structure>

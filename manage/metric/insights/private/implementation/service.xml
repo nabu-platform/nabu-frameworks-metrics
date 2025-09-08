@@ -1,0 +1,303 @@
+<sequence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		disabled="false"
+		id="386a09c32ad340fca3550b5578d56e31"
+		lineNumber="1">
+	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+			comment="Map initial context"
+			disabled="false"
+			id="5334d0a5fb8d472da5365e3106113767"
+			lineNumber="2">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+				disabled="false"
+				id="9651858d247749ad9461794a613e0a17"
+				fixedValue="false">
+			<from>input/query/metricGroupContext</from>
+			<to>metricGroupContext</to>
+		</steps>
+	</steps>
+	<steps xsi:type="be.nabu.libs.services.vm.step.Switch"
+			comment="Limit list"
+			disabled="false"
+			id="19b20e3cd7844d57b71031efbcf36f05"
+			lineNumber="3">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Sequence"
+				comment="If we want something referenced by something else, limit the metricGroupContext to that"
+				disabled="false"
+				id="d198dc98b66c41af9c64ac9304c2669b"
+				label="input/query/referencedBy != null"
+				lineNumber="4">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+					disabled="false"
+					id="7aa68dc5f0814e23acdb5597c06da0d4"
+					lineNumber="5">
+				<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+						disabled="false"
+						id="3fa834669d684d8584777bd69f176c0b"
+						serviceId="nabu.utils.reflection.Node.references"
+						resultName="result1fc7a85c6b564417b43fcacd778c08f7"
+						temporaryMapping="true"
+						x="67"
+						y="11"
+						invocationOrder="0"
+						asynchronous="false"
+						recache="false">
+					<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+							disabled="false"
+							id="1179f9fd480442ccae8907ba90fd4bd3"
+							fixedValue="true">
+						<from>false</from>
+						<to>recursive</to>
+					</steps>
+					<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+							disabled="false"
+							id="1626cbe926874ab8ab6e139e603efae4"
+							fixedValue="false">
+						<from>input/query/referencedBy</from>
+						<to>id</to>
+					</steps>
+					<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+							disabled="false"
+							id="2eba0a265391472f957d33f819f7bba1"
+							fixedValue="false">
+						<from>input/query/artifactClass[0]</from>
+						<to>type</to>
+					</steps>
+				</steps>
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+						disabled="false"
+						id="51b83c7e85754cbc80ec496b2ab61a3a"
+						fixedValue="false">
+					<from>result1fc7a85c6b564417b43fcacd778c08f7/nodes</from>
+					<to>references</to>
+				</steps>
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+						disabled="false"
+						id="820247b3659b47bcb34cfd0f6a5d8b7e"
+						fixedValue="false">
+					<from>result1fc7a85c6b564417b43fcacd778c08f7/nodes/id</from>
+					<to>referencedIds</to>
+				</steps>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Switch"
+					disabled="false"
+					id="74998e4c1305476fa928e1fdea84a5f2"
+					lineNumber="6">
+				<steps xsi:type="be.nabu.libs.services.vm.step.Switch"
+						disabled="false"
+						id="a4a2e0e3f2e3449a9d70ad53187ef7f0"
+						label="referencedIds != null"
+						lineNumber="7"
+						query="metricGroupContext">
+					<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+							comment="This is the whitelist"
+							disabled="false"
+							id="9c5aed8918634552b7074086d275c853"
+							label="null"
+							lineNumber="8">
+						<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+								disabled="false"
+								id="c4015d6567994d0ab6c8df00395fac65"
+								fixedValue="false">
+							<from>referencedIds</from>
+							<to>metricGroupContext</to>
+						</steps>
+					</steps>
+					<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+							comment="Retain only those that matter"
+							disabled="false"
+							id="452bec9353524cd88db4f65b3e9f396e"
+							lineNumber="9">
+						<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+								disabled="false"
+								id="0b2837dd66734a99a9b4b214105c32f2"
+								fixedValue="false">
+							<from>metricGroupContext[$this # /referencedIds]</from>
+							<to>metricGroupContext</to>
+						</steps>
+					</steps>
+				</steps>
+				<steps xsi:type="be.nabu.libs.services.vm.step.Break"
+						comment="No valid references"
+						disabled="false"
+						id="b925153d06ca4277989baf8dd80fb052"
+						lineNumber="10">
+					<count>2</count>
+				</steps>
+			</steps>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Sequence"
+				comment="We are only interested in a particular set of artifact types. In combination with references is already handled in above"
+				disabled="false"
+				id="d8b7c2925f494ef6baf842b8f56fef73"
+				label="input/query/artifactClass != null"
+				lineNumber="11">
+			<steps xsi:type="be.nabu.libs.services.vm.step.For"
+					disabled="false"
+					id="fa524004cf0842bea569c85e05e85069"
+					lineNumber="12"
+					variable="artifactClass"
+					into="references">
+				<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+						comment="List all nodes of that type"
+						disabled="false"
+						id="db6483395b4b496db8041c7ec33c72c5"
+						lineNumber="13">
+					<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+							disabled="false"
+							id="9d8ae029464b4e4fb7a438b774ea0e55"
+							serviceId="nabu.utils.reflection.Node.listByType"
+							resultName="resultda4bceb235944237bb8f3a9eaf36dbcc"
+							temporaryMapping="true"
+							x="71"
+							y="89"
+							invocationOrder="0"
+							asynchronous="false"
+							recache="false">
+						<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+								disabled="false"
+								id="f25d6ba7777b432188aca7e4014faa6b"
+								fixedValue="false">
+							<from>artifactClass</from>
+							<to>type</to>
+						</steps>
+					</steps>
+					<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+							disabled="false"
+							id="35e0a69a3bb74a7a82e4876dca15b654"
+							fixedValue="false">
+						<from>resultda4bceb235944237bb8f3a9eaf36dbcc/nodes</from>
+						<to>references</to>
+					</steps>
+				</steps>
+				<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+						comment="If we have a specific list of nodes, limit to that"
+						disabled="false"
+						id="545f38bc78de4d62af4806cbe1cf890a"
+						label="input/query/metricGroupContext != null"
+						lineNumber="14">
+					<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+							disabled="false"
+							id="d49a091fe9b9483393e2ec749204cec7"
+							fixedValue="false">
+						<from>references[id # /input/query/metricGroupContext]</from>
+						<to>references</to>
+					</steps>
+				</steps>
+				<query>input/query/artifactClass</query>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Switch"
+					disabled="false"
+					id="2a8ba4488bc8421f99b0fa81884ec874"
+					lineNumber="15"
+					query="references">
+				<steps xsi:type="be.nabu.libs.services.vm.step.Break"
+						comment="No valid nodes"
+						disabled="false"
+						id="b99ebe826fc347ca9d658266a9c68b74"
+						label="null"
+						lineNumber="16">
+					<count>2</count>
+				</steps>
+				<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+						disabled="false"
+						id="cacc00819e3b4b278b78d0ab65dd10a7"
+						lineNumber="17">
+					<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+							disabled="false"
+							id="6008db1d62f44e3fa1f5e4ac6d8fc9cf"
+							fixedValue="false">
+						<from>references/id</from>
+						<to>metricGroupContext</to>
+					</steps>
+				</steps>
+			</steps>
+		</steps>
+	</steps>
+	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+			disabled="false"
+			id="9c10ebdddebf4dc5ab8dc6da16b52e61"
+			lineNumber="18">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+				disabled="false"
+				id="909995574bfe44e39c70aa349511e11a"
+				serviceId="nabu.frameworks.metrics.crud.metricInstance.services.list"
+				resultName="resultb799be2a630d4cb38fa83b540ca38e66"
+				temporaryMapping="true"
+				x="178"
+				y="104"
+				invocationOrder="0"
+				asynchronous="false"
+				recache="false">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="964926b74f3c4acdaac44e009b462709"
+					fixedValue="false">
+				<from>input/query/since</from>
+				<to>filter/since</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="bf475261109d4666aa7dff3464f0c425"
+					fixedValue="false">
+				<from>input/query/until</from>
+				<to>filter/until</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="fc5b472935f84bd689bbaffb8e05c5c6"
+					fixedValue="false">
+				<from>input/query/serverName</from>
+				<to>filter/serverName</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="05f7a7e20503473983f3751f8146dfd7"
+					fixedValue="false">
+				<from>input/query/serverGroup</from>
+				<to>filter/serverGroup</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="71d04ac8785c4b07b6e3d4fb5227c1ad"
+					fixedValue="false">
+				<from>input/query/limit</from>
+				<to>limit</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="387c5b71eda6408baba7ffdaf9f5c506"
+					fixedValue="false">
+				<from>input/query/offset</from>
+				<to>offset</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="2ab33a9094124061819685f71d4dc208"
+					fixedValue="false">
+				<from>input/query/orderBy</from>
+				<to>orderBy</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="32516af2985b459d94afd7a17cd81192"
+					fixedValue="false">
+				<from>metricGroupContext</from>
+				<to>filter/metricGroupContext</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="7bbcd9c7adf04b46a77cf04015b8eb77"
+					fixedValue="false">
+				<from>input/query/metricGroupName</from>
+				<to>filter/metricGroupName</to>
+			</steps>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+				disabled="false"
+				id="25ad328892ac4b5f80670aac12411b33"
+				fixedValue="false">
+			<from>resultb799be2a630d4cb38fa83b540ca38e66</from>
+			<to>output/content</to>
+		</steps>
+	</steps>
+</sequence>

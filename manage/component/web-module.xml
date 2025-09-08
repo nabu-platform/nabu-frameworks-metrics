@@ -3,4 +3,7 @@
     <webFragments>nabu.frameworks.metrics.crud.metricGroup</webFragments>
     <webFragments>nabu.frameworks.metrics.crud.metricInstance</webFragments>
     <webFragments>nabu.frameworks.metrics.crud.metricRule</webFragments>
+    <webFragments>nabu.frameworks.metrics.crud.metricFilter</webFragments>
+    <webFragments>nabu.frameworks.metrics.manage.metric.insights</webFragments>
+    <audience>MANAGER</audience>
 </webModule>
